@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Scisor Paper</title>
+</head>
+<body>
+    
+
+    <h1 style="text-align: center;padding: 20px 0; font-weight: normal;">Rock, Scissor and Paper</h1><hr>
+    <h2 style="text-align: center;" class="resultado"></h2>
+
+    <div class="align">
+        <div class="player-options">
+            <div><img opt="paper" src="paper.png"></div>
+            <div><img opt="rock" src="rock.png"></div>
+            <div><img opt="scisor" src="scisor.png"></div>
+        </div><!--player-options-->
+    
+        <div class="enemy-options">
+            <div><img opt="paper" src="paper.png"></div>
+            <div><img opt="rock" src="rock.png"></div>
+            <div><img opt="scisor" src="scisor.png"></div>
+        </div><!--enemy-options-->
+    </div>
+    
+    <script>
+
+        var elementos = document.querySelectorAll('.player-options div > img');
+        var optPlayer = "";
+        var optInimigo = "";
+
+        function validarVitoria(){
+
+            let resultado = document.querySelector('.resultado');
+
+            if(optPlayer == 'paper'){
+                if(optInimigo == 'paper'){
+                    resultado.innerHTML = "Empate"
+                    resultado.style.color = "black"
+                }else if(optInimigo == 'rock'){
+                    resultado.innerHTML = "Você ganhou"
+                    resultado.style.color = "green"
+                }else if(optInimigo == 'scisor'){
+                    resultado.innerHTML = "Você perdeu"
+                    resultado.style.color = "red"
+                }
+            }
+
+            if(optPlayer == 'rock'){
+                if(optInimigo == 'paper'){
+                    resultado.innerHTML = "Você perdeu"
+                    resultado.style.color = "red"
+                }else if(optInimigo == 'rock'){
+                    resultado.innerHTML = "Empate"
+                    resultado.style.color = "black"
+                }else if(optInimigo == 'scisor'){
+                    resultado.innerHTML = "Você ganhou"
+                    resultado.style.color = "green"
+                }
+            }
+            if(optPlayer == 'scisor'){
+                if(optInimigo == 'paper'){
+                    resultado.innerHTML = "Você ganhou"
+                    resultado.style.color = "green"
+                }else if(optInimigo == 'rock'){
+                    resultado.innerHTML = "Você perdeu"
+                    resultado.style.color = "red"
+                }else if(optInimigo == 'scisor'){
+                    resultado.innerHTML = "Empate"
+                    resultado.style.color = "black"
+                }
+            }
+            //alert(optPlayer);
+            //alert(optInimigo)
+        }
+
+        function resetInimigo(){
+
+            const enemyOptions = document.querySelectorAll('.enemy-options div > img');
+
+            for(var i = 0; i < enemyOptions.length; i++){
+                enemyOptions[i].style.opacity = 0.3;
+            }
+        }
+
+        function inimigoJogar(){
+            let rand = Math.floor(Math.random()*3);
+            
+            const enemyOptions = document.querySelectorAll('.enemy-options div > img');
+
+            resetInimigo();
+
+            for(var i = 0; i < enemyOptions.length; i++){
+                if(i == rand){
+                    enemyOptions[i].style.opacity = 1;
+                    optInimigo = enemyOptions[i].getAttribute('opt');
+                }
+            }
+
+            validarVitoria();
+
+            
+        }
+
+        function resetOpacityPlayer(){
+            for(var i = 0; i < elementos.length;i++){
+                elementos[i].style.opacity = 0.3
+            }
+        }
+
+        for(var i =0; i < elementos.length; i++){
+            elementos[i].addEventListener('click',function(t){
+                resetOpacityPlayer();
+                t.target.style.opacity = 1;
+                optPlayer = t.target.getAttribute('opt');
+
+                inimigoJogar();
+
+            })
+        }
+
+    </script>
+
+</body>
+</html>

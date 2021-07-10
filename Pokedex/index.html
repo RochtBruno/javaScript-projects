@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Pokedéx</title>
+</head>
+<body>
+    
+    <div class="main">
+        <h2>Pokedex</h2>
+        <input id="quantidade" type="text" name="quantidade" placeholder="insira a quantidade de pokemons">
+
+        <div class="pokemon-boxes">
+            
+        </div>
+    </div>
+
+
+    <script>
+
+        var quantidade = document.getElementById('quantidade');
+        quantidade.addEventListener('keyup',()=>{
+            pegaPokemons(quantidade.value)
+        })
+
+        pegaPokemons(3);
+
+        function pegaPokemons(quantidade){
+            fetch('https://pokeapi.co/api/v2/pokemon?limit='+quantidade)
+        .then(response => response.json())
+        .then(allpokemon => {
+
+            var pokemons =[];
+            
+            allpokemon.results.map((val) => {
+                
+
+                fetch(val.url)
+                .then(response => response.json())
+                .then(pokemonSingle => {
+                    pokemons.push({nome:val.name,imagem:pokemonSingle.sprites.front_default});
+
+                    if(pokemons.length == quantidade){
+                        //terminou as requisições
+
+                        var pokemonBoxes = document.querySelector('.pokemon-boxes');
+                        pokemonBoxes.innerHTML = "";
+
+                        //console.log(pokemons);
+                        pokemons.map((val)=>{
+
+                            pokemonBoxes.innerHTML+=`
+                            
+                            <div class="pokemon-single">
+                                <img src="`+val.imagem+`" alt="">
+                                <p>`+val.nome+`</p>
+                            </div>
+
+                            `;
+                        });
+                    }
+
+                });
+
+                
+                });
+
+                pokemons.map((val)=>{
+                    console.log(val.nome)
+            })
+
+        });
+        }
+    </script>
+</body>
+</html>

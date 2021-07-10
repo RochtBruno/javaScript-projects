@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+body h1{
+    text-align: center;
+    margin: 20px auto;
+    padding: 0 2%;
+}
+.title{
+    text-align: center;
+    padding: 0 2%;
+}
+.title input{
+    cursor: pointer;
+}
+.title input,
+.title span{
+    margin: 8px 2px;
+}
+.title form{
+    margin: 20px 0;
+}

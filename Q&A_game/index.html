@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Q&A Game</title>
+</head>
+<body>
+    <h1>Q&A Game</h1>
+    
+    <div class="title">
+        <h2>Which one is the correct answer?</h2>
+
+        <form class="pergunta">
+            <div class="resposta">
+                <label for="opcao1">Option 1</label>
+                <input type="radio" id="opcao1" name="pergunta1" value="correct">
+            </div>
+            <br>
+            <div class="resposta">
+                <label for="opcao2">Option 2</label>
+                <input type="radio" id="opcao2" name="pergunta1" value="incorrect">
+            </div>
+            <br>
+            <div class="resposta">
+                <label for="opcao3">Option 3</label>
+                <input type="radio" id="opcao3" name="pergunta1" value="incorrect">
+            </div>
+            <br>
+        </form>
+
+    </div>
+
+    <div class="title">
+        <h2>Which one is the correct answer?</h2>
+
+        <form class="pergunta">
+            <div class="resposta">
+                <label for="opcao1">Option 1</label>
+                <input type="radio" id="opcao1" name="pergunta1" value="correct">
+            </div>
+            <br>
+            <div class="resposta">
+                <label for="opcao2">Option 2</label>
+                <input type="radio" id="opcao2" name="pergunta1" value="incorrect">
+            </div>
+            <br>
+            <div class="resposta">
+                <label for="opcao3">Option 3</label>
+                <input type="radio" id="opcao3" name="pergunta1" value="incorrect">
+            </div>
+            <br>
+        </form>
+
+    </div>
+
+    <script>
+        var elementos = document.querySelectorAll('input[type=radio]');
+
+        for(var i = 0; i < elementos.length; i++){
+            elementos[i].addEventListener('change',(t)=>{
+                let marcado = t.target.value;
+                if(marcado == 'correct'){
+                    
+                    let parentNode = t.target.parentNode;
+                    parentNode.style.color = "green";
+
+                    let els = parentNode.parentNode.querySelectorAll('input[type=radio]');
+
+                    for(var n = 0; n < els.length; n++){
+                        els[n].disabled = true;
+                    }
+
+                }else if(marcado == 'incorrect'){
+                    
+                    let parentNode = t.target.parentNode;
+                    parentNode.style.color = "red";
+
+                    let els = parentNode.parentNode.querySelectorAll('input[type=radio]');
+
+                    for(var n = 0; n < els.length; n++){
+                        els[n].disabled = true;
+                    }
+
+                    let correta =  parentNode.parentNode.querySelector('[value=correct]');
+                    correta.parentNode.style.color = "green"
+                }
+            })
+        }
+
+    </script>
+
+</body>
+</html>
