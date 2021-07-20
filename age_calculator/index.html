@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Age calculator</title>
+</head>
+<body>
+    <header>
+        <h2>Age calculator</h2>
+    </header>
+
+    <section>
+        <div class="form">
+            <p>Year of birth: <input type="number" name="birth" id="birth">
+            </p>
+            <p>Sex: 
+                <input type="radio" name="radsex" id="male" checked>
+                <label for="male">Male</label>
+                <input type="radio" name="radsex" id="fem">
+                <label for="fem">Female</label>
+            </p>
+
+            <p>
+                <input type="button" value="Verify" onclick= " verificar();">
+            </p>
+        </div>
+
+        <div id="res">
+        </div>
+    </section>
+
+    <footer>
+        <p>&ageCalc.</p>
+    </footer>
+    
+
+    <script src="functions.js"></script>
+</body>
+</html>

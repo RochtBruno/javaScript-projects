@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+html,body{
+    height: 100%;
+    text-align: center;
+    background-color: teal;
+}
+header{
+    color: white;
+    padding: 15px;
+}
+section{
+    background-color: white;
+    border-radius: 30px;
+    padding: 20px 2%;
+}
+div input[type=radio],
+div input[type=button]{
+    cursor: pointer;
+}
+div.form{
+    text-align: center;
+}
+div.form input[type=button]{
+    color: white;
+    background-color: teal;
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 0;
+}
+
+div p{
+    padding: 10px 0;
+}
+footer p{
+    margin-top: 20px;
+    color: white;
+}
