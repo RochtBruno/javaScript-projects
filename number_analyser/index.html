@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Number Analyzer</title>
+</head>
+<body>
+    <header>
+        <h2>Number Analyzer</h2>
+    </header>
+
+    <section>
+        <div>
+            <p class="add_number">Number:(between 1 and 100)<input type="number" id="get_number">
+                <input type="button" value="Add" onclick="addNumber()">
+                <input type="button" value="Analyze" onclick="analyzeNumber()"></p>
+                
+        </div>
+
+        <div id="chart"></div>
+
+        <div id="res">
+            
+        </div>
+    </section>
+
+    <footer>
+        <p> JavaScript Ex</p>
+    </footer>
+    
+    <script src="functions.js"></script>
+</body>
+</html>

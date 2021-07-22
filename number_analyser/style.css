@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+html,body{
+    height: 100%;
+    background-color: rgb(73, 70, 255);
+    text-align: center;
+    color: white;
+}
+header{
+    padding: 20px 0;
+}
+section{
+    margin: 30px auto;
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
+    background-color: white;
+    border-radius: 20px;
+}
+footer p{
+    color: black;
+}
+div p.add_number{
+    padding: 30px 0;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+div input[type=button]{
+    background-color: rgb(73, 70, 255);
+    border: 0;
+    border-radius: 15px;
+    color: white;
+    padding: 5px 12px;
+    cursor: pointer;
+}
